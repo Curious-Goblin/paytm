@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const app = express()
 app.use(cors(
     {
-        origin:[""],
+        origin:["https://paytm-frontend-neon.vercel.app"],
         methods:["POST, GET, PUT"],
         credentials:true
     }
