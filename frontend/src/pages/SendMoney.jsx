@@ -14,29 +14,32 @@ export default function SendMoney() {
     const [amount, setAmount] = useState("")
     return (
         <div className="w-full h-screen flex justify-center items-center bg-gray-200">
-            <div className="w-3/12 h-7/12 bg-white rounded-lg border border-2 pt-20 pb-20">
-                <div className="mb-20">
+            <div className="lg:w-3/12 bg-white rounded-lg border border-2 pt-20 pb-20">
+                <div className="mb-10">
                     <Heading label={"Send Money"} />
                 </div>
                 <div className="flex justify-center w-full">
                     <div className=" pl-4 pr-4 w-11/12 flex flex-col justify-start">
                         <div>
-                            <div className="flex gap-2 justify-start pb-4">
+                            <div className="flex gap-2 justify-center pb-10">
                                 <div className="text-white font-medium flex justify-center items-center rounded-full w-8 h-8 bg-green-500">
                                     {name[0]}
                                 </div>
                                 <div className="text-3xl font-medium">{name}</div>
                             </div>
-                            <div className="font-medium text-xl text-left">
+                            <div className="font-medium text-xl text-left pb-2">
                                 Amount (in Rs)
                             </div>
                         </div>
                         <div className="">
+                            <div className="pb-2">
                             <InputBox onChange={(e) => {
                                 setAmount(e.target.value)
                             }} placeholder="Enter Amount" />
+                            </div>
                             <Button onClick={() => {
                                 axios.post("https://paytm-server-wheat.vercel.app/api/v1/account/transfer", {
+                                // axios.post("http://localhost:3000/api/v1/account/transfer", {
                                     to: id,
                                     amount: amount
                                 }, {

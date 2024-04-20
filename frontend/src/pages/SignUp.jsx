@@ -26,7 +26,7 @@ export default function SignUp() {
 
     return (
         <div className="flex justify-center items-center w-full h-screen bg-gray-200">
-            <div className="w-7/10 bg-white rounded-lg p-4">
+            <div className="w-7/10 bg-white rounded-lg p-4 m-4">
                 <Heading label={"Sign Up"} />
                 <SubHeading label={"Enter your information to create an account"} />
                 <InputBox onChange={(e) => {
@@ -47,6 +47,7 @@ export default function SignUp() {
                 <Button onClick={async () => {
                     try {
                         const response = await axios.post("https://paytm-server-wheat.vercel.app/api/v1/user/signup",
+                        // const response = await axios.post("http://localhost:3000/api/v1/user/signup",
                             {
                                 username,
                                 firstName,

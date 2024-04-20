@@ -20,7 +20,7 @@ export default function SignIn() {
 
     return (
         <div className="flex justify-center items-center w-full h-screen bg-gray-200">
-            <div className="w-7/10 bg-white rounded-lg p-4">
+            <div className="w-7/10 bg-white rounded-lg p-4 m-4">
                 <Heading label={"Log In"} />
                 <SubHeading label={"Enter your credentials to enter your account"} />
                 <InputBox
@@ -41,6 +41,7 @@ export default function SignIn() {
                 <Button onClick={async () => {
                     try {
                         const response = await axios.post("https://paytm-server-wheat.vercel.app/api/v1/user/signin", {
+                        // const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
                             username,
                             password
                         })

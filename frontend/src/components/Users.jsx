@@ -8,6 +8,8 @@ export const Users = () => {
 
     useEffect(() => {
         axios.get("https://paytm-server-wheat.vercel.app/api/v1/user/bulk?filter=" + filter, {
+        // axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter, {
+
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
@@ -46,12 +48,16 @@ function User({ user }) {
                     {user.firstName} {user.lastName}
                 </div>
             </div>
-            <div className="">
+            <div className="hidden md:block">
                 <Button onClick={() => {
                     navigate("/send?id=" + user.id + "&name=" + user.firstName)
                 }} label={"Send Money"} />
             </div>
-
+            <div className="md:hidden">
+                <Button onClick={() => {
+                    navigate("/send?id=" + user.id + "&name=" + user.firstName)
+                }} label={"Send"} />
+            </div>
         </div>
     )
 }
