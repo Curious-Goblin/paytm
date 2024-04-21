@@ -4,10 +4,12 @@ import { InputBox } from "../components/InputBox"
 import { useSearchParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useState } from "react"
+import { useRecoilValue } from "recoil"
+import { BalanceAtom } from "../atoms/BalanceAtom"
 
 export default function SendMoney() {
     const navigate = useNavigate();
-
+    const balance = useRecoilValue(BalanceAtom)
     const [searchParams] = useSearchParams()
     const id = searchParams.get("id")
     const name = searchParams.get("name")
@@ -33,24 +35,34 @@ export default function SendMoney() {
                         </div>
                         <div className="">
                             <div className="pb-2">
-                            <InputBox onChange={(e) => {
-                                setAmount(e.target.value)
-                            }} placeholder="Enter Amount" />
+                                <InputBox onChange={(e) => {
+                                    setAmount(e.target.value)
+                                }} placeholder="Enter Amount" />
                             </div>
                             <Button onClick={() => {
-                                axios.post("https://paytm-server-wheat.vercel.app/api/v1/account/transfer", {
-                                // axios.post("http://localhost:3000/api/v1/account/transfer", {
-                                    to: id,
-                                    amount: amount
-                                }, {
-                                    headers: {
-                                        "Authorization": "Bearer " + localStorage.getItem("token")
-                                    }
-                                })
-                                navigate("/payementDone");
-                                setTimeout(() => {
-                                    navigate("/dashboard");
-                                }, 1000);
+                                const bal = parseInt(balance)
+                                const amo = parseInt(amount)
+                                if (amo <= bal) {
+                                    axios.post("https://paytm-server-wheat.vercel.app/api/v1/account/transfer", {
+                                    // axios.post("http://localhost:3000/api/v1/account/transfer", {
+                                        to: id,
+                                        amount: amount
+                                    }, {
+                                        headers: {
+                                            "Authorization": "Bearer " + localStorage.getItem("token")
+                                        }
+                                    })
+                                    navigate("/payementDone");
+                                    setTimeout(() => {
+                                        navigate("/dashboard");
+                                    }, 2000);
+                                }
+                                else {
+                                    navigate("/payementFailed")
+                                    setTimeout(() => {
+                                        navigate("/dashboard")
+                                    }, 2000)
+                                }
                             }} label={"Initiate Transfer"} />
                         </div>
                     </div>
