@@ -4,11 +4,11 @@ const mainRouter = require("./routes/index");
 const bodyParser = require("body-parser");
 const app = express()
 app.use(cors(
-    // {
-    //     origin:["https://paytm-frontend-neon.vercel.app"],
-    //     methods:["POST, GET, PUT"],
-    //     credentials:true
-    // }
+    {
+        origin:["https://paytm-frontend-neon.vercel.app"],
+        methods:["POST, GET, PUT"],
+        credentials:true
+    }
 ))
 
 app.use(bodyParser.json())
