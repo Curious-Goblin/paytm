@@ -19,8 +19,8 @@ export default function Dashboard() {
 function AppbarComponent(){
     const [firstName,setFirstName]=useState("")
     useEffect(()=>{
-        // axios.get("https://paytm-server-wheat.vercel.app/api/v1/user/me",{
-        axios.get("http://localhost:3000/api/v1/user/me",{
+        axios.get("https://paytm-server-wheat.vercel.app/api/v1/user/me",{
+        // axios.get("http://localhost:3000/api/v1/user/me",{
             headers:{
                 "Authorization":`Bearer ${localStorage.getItem("token")}`
             }
