@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://poddarsourabh9939:Sourabhh%40123@cluster0.scewquy.mongodb.net/paytm?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://poddarsourabh9939:sourabh123@cluster0.scewquy.mongodb.net/paytmDatabase?retryWrites=true&w=majority&appName=Cluster0")
 //mongodb+srv://poddarsourabh9939:<password>@cluster0.scewquy.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0
 
 //mongodb+srv://poddarsourabh9939:Sourabhh%40123@cluster0.scewquy.mongodb.net/
