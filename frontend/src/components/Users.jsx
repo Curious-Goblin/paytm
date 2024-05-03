@@ -7,7 +7,7 @@ export const Users = () => {
     const [filter, setFilter] = useState("")
 
     useEffect(() => {
-        axios.get("https://paytm-server-wheat.vercel.app/api/v1/user/bulk?filter=" + filter, {
+        axios.get("https://paytm-kohl.vercel.app/api/v1/user/bulk?filter=" + filter, {
         // axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter, {
 
             headers: {
