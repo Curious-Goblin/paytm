@@ -43,7 +43,7 @@ export default function SendMoney() {
                                 const bal = parseInt(balance)
                                 const amo = parseInt(amount)
                                 if (amo <= bal) {
-                                    axios.post("https://paytm-server-wheat.vercel.app/api/v1/account/transfer", {
+                                    axios.post("https://paytm-server-teal.vercel.app/api/v1/account/transfer", {
                                     // axios.post("http://localhost:3000/api/v1/account/transfer", {
                                         to: id,
                                         amount: amount
