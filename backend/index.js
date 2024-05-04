@@ -17,7 +17,3 @@ app.use("/api/v1", mainRouter)
 app.listen(3000, () => {
     console.log("server is running at 3000")
 })
-// "dev":"node index.js",
-// ,
-    
-//     "build":"npm i"
