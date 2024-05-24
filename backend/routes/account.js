@@ -1,8 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const JWT_SECRET = require('../config')
-const authMiddleware = require("../middleware")
-const { Account, User, Transactions } = require("../db")
+const  authMiddleware  = require("../middleware")
+const { Account, User } = require("../db")
 const mongoose = require("mongoose")
 
 router.get("/balance", authMiddleware, async (req, res) => {
@@ -45,17 +45,6 @@ router.post("/transfer", authMiddleware, async (req, res) => {
         { userId: to },
         { $inc: { balance: amount } }
     ).session(session)
-    await Transactions.create({
-        id: req.body.to,
-        
-        $push: {
-            transactions: {
-                username: req.body.username,
-                amount: req.body.amount,
-                userId: req.userId
-            }
-        }
-    })
 
     await session.commitTransaction()
     res.json({
