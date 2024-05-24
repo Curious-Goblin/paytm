@@ -14,6 +14,7 @@ export default function SendMoney() {
     const id = searchParams.get("id")
     const name = searchParams.get("name")
     const [amount, setAmount] = useState("")
+    let transaction=[]
     return (
         <div className="w-full h-screen flex justify-center items-center bg-gray-200">
             <div className="lg:w-3/12 bg-white rounded-lg border border-2 pt-20 pb-20">
@@ -42,11 +43,15 @@ export default function SendMoney() {
                             <Button onClick={() => {
                                 const bal = parseInt(balance)
                                 const amo = parseInt(amount)
-                                if (amo <= bal) {
+                                if (amo <= bal && amo > 0) {
+                                    transaction.push({
+                                        id,name,amo
+                                    })
                                     // axios.post("https://paytm-kohl.vercel.app/api/v1/account/transfer", {
                                     axios.post("http://localhost:3000/api/v1/account/transfer", {
                                         to: id,
-                                        amount: amount
+                                        amount: amount,
+                                        username:name
                                     }, {
                                         headers: {
                                             "Authorization": "Bearer " + localStorage.getItem("token")
