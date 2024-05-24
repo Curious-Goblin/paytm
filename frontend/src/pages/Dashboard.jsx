@@ -8,7 +8,7 @@ import { BalanceAtom } from "../atoms/BalanceAtom"
 
 export default function Dashboard() {
     return (
-        <div className="bg-blue-200 h-screen">
+        <div>
             <AppbarComponent />
             <BalanceComponent />
             <Users />
