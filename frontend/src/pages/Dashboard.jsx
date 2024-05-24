@@ -19,8 +19,8 @@ export default function Dashboard() {
 function AppbarComponent(){
     const [firstName,setFirstName]=useState("")
     useEffect(()=>{
-        // axios.get("https://paytm-server-wheat.vercel.app/api/v1/user/me",{
-        axios.get("http://localhost:3000/api/v1/user/me",{
+        axios.get("https://paytm-api-h7cl.onrender.com/api/v1/user/me",{
+        // axios.get("http://localhost:3000/api/v1/user/me",{
             headers:{
                 "Authorization":`Bearer ${localStorage.getItem("token")}`
             }
@@ -38,8 +38,8 @@ function BalanceComponent() {
     const [balance, setBalance] = useRecoilState(BalanceAtom)
 
     useEffect(() => {
-        // axios.get("https://paytm-server-wheat.vercel.app/api/v1/account/balance", {
-        axios.get("http://localhost:3000/api/v1/account/balance", {
+        axios.get("https://paytm-api-h7cl.onrender.com/api/v1/account/balance", {
+        // axios.get("http://localhost:3000/api/v1/account/balance", {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }

@@ -37,8 +37,8 @@ function DashboardOrSignUp() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        // const response = await axios.get("https://paytm-server-wheat.vercel.app/api/v1/user/me", {
-        const response = await axios.get("http://localhost:3000/api/v1/user/me", {
+        const response = await axios.get("https://paytm-api-h7cl.onrender.com/api/v1/user/me", {
+        // const response = await axios.get("http://localhost:3000/api/v1/user/me", {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
           }
