@@ -5,7 +5,9 @@ const bodyParser = require("body-parser");
 const app = express()
 app.use(cors(
     {
-        
+        origin:["https://paytm-2-ewr7.onrender.com/"],
+        methods:["POST, GET, PUT"],
+        credentials:true
     }
 ))
 
