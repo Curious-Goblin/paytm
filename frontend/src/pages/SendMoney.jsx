@@ -16,7 +16,7 @@ export default function SendMoney() {
     const [amount, setAmount] = useState("")
     return (
         <div className="w-full h-screen flex justify-center items-center bg-gray-200">
-            <div className="lg:w-3/12 bg-white rounded-lg border border-2 pt-20 pb-20">
+            <div className="lg:w-3/12 bg-white rounded-lg border-2 pt-20 pb-20">
                 <div className="mb-10">
                     <Heading label={"Send Money"} />
                 </div>
@@ -43,8 +43,8 @@ export default function SendMoney() {
                                 const bal = parseInt(balance)
                                 const amo = parseInt(amount)
                                 if (amo <= bal) {
-                                    axios.post("https://paytm-api-h7cl.onrender.com/api/v1/account/transfer", {
-                                    // axios.post("http://localhost:3000/api/v1/account/transfer", {
+                                    // axios.post("https://paytm-api-h7cl.onrender.com/api/v1/account/transfer", {
+                                    axios.post("http://localhost:3000/api/v1/account/transfer", {
                                         to: id,
                                         amount: amount
                                     }, {
