@@ -19,8 +19,8 @@ export default function Dashboard() {
 function AppbarComponent(){
     const [firstName,setFirstName]=useState("")
     useEffect(()=>{
-        // axios.get("https://paytm-api-h7cl.onrender.com/api/v1/user/me",{
-        axios.get("http://localhost:3000/api/v1/user/me",{
+        axios.get("https://paytm-backend-ashy.vercel.app/api/v1/user/me",{
+        // axios.get("http://localhost:3000/api/v1/user/me",{
             headers:{
                 "Authorization":`Bearer ${localStorage.getItem("token")}`
             }
