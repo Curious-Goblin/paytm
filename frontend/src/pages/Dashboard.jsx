@@ -38,8 +38,8 @@ function BalanceComponent() {
     const [balance, setBalance] = useRecoilState(BalanceAtom)
 
     useEffect(() => {
-        // axios.get("https://paytm-api-h7cl.onrender.com/api/v1/account/balance", {
-        axios.get("http://localhost:3000/api/v1/account/balance", {
+        axios.get("https://paytm-backend-ashy.vercel.app/api/v1/account/balance", {
+        // axios.get("http://localhost:3000/api/v1/account/balance", {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
