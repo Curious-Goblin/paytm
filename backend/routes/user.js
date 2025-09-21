@@ -164,4 +164,46 @@ router.get("/bulk", authMiddleware, async (req, res) => {
 
 })
 
+router.get("/bulkDummy", async (req, res) => {
+    const filter = req.query.filter || " "
+    if (filter != " ") {
+        let users = await User.find({
+            $or: [{
+                firstName: {
+                    "$regex": filter
+                }
+            },
+            {
+                lastName: {
+                    "$regex": filter
+                }
+            }]
+        })
+        res.json({
+            user: users.map(user => ({
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                id: user._id
+            }))
+        })
+    }
+    else {
+        let users = await User.find({})
+        let id = req.userId
+        const user = await User.findOne({ _id: id })
+        users = users.filter(user => user._id.toString() !== id);
+
+        res.json({
+            user: users.map(user => ({
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                id: user._id
+            }))
+        })
+    }
+
+})
+
 module.exports = router
