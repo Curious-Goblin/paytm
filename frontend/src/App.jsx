@@ -19,7 +19,8 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Suspense fallback={"loading..."}><SignUp /></Suspense>} />
           <Route path="/signin" element={<Suspense fallback={"loading..."}><SignIn /></Suspense>} />
-          <Route path="/" element={<Suspense fallback={"loading..."}><DashboardOrSignUp /></Suspense>} />
+          {/* <Route path="/" element={<Suspense fallback={"loading..."}><DashboardOrSignUp /></Suspense>} /> */}
+          <Route path="/" element={<Suspense fallback={"loading..."}><Dashboard/></Suspense>} />
           <Route path="/dashboard" element={<Suspense fallback={"loading..."}><Dashboard /></Suspense>} />
           <Route path="/send" element={<Suspense fallback={"loading..."}><SendMoney /></Suspense>} />
           <Route path="/payementDone" element={<Suspense fallback={"loading..."}><PayementDone /></Suspense>} />

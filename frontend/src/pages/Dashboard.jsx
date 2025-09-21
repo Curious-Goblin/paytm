@@ -17,7 +17,7 @@ export default function Dashboard() {
 }
 
 function AppbarComponent(){
-    const [firstName,setFirstName]=useState("")
+    const [firstName,setFirstName]=useState("Dummy")
     useEffect(()=>{
         axios.get("https://paytm-backend-ashy.vercel.app/api/v1/user/me",{
         // axios.get("http://localhost:3000/api/v1/user/me",{

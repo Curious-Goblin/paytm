@@ -2,5 +2,5 @@ import { atom } from "recoil";
 
 export const BalanceAtom=atom({
     key:"BalanceAtom",
-    default:""
+    default:"5000"
 })
