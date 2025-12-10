@@ -5,8 +5,13 @@ import { Users } from "../components/Users"
 import axios from "axios"
 import { useRecoilState } from "recoil"
 import { BalanceAtom } from "../atoms/BalanceAtom"
+const URL = import.meta.env.VITE_URL || "http://localhost:3000";
+
 
 export default function Dashboard() {
+    const url = import.meta.env.VITE_URL;
+    console.log("see here is the environment variable");
+    console.log(url);
     return (
         <div>
             <AppbarComponent />
@@ -19,8 +24,8 @@ export default function Dashboard() {
 function AppbarComponent(){
     const [firstName,setFirstName]=useState("Dummy")
     useEffect(()=>{
-        axios.get("https://paytm-backend-ashy.vercel.app/api/v1/user/me",{
-        // axios.get("http://localhost:3000/api/v1/user/me",{
+        // axios.get("https://paytm-backend-ashy.vercel.app/api/v1/user/me",{
+        axios.get(`${URL}/api/v1/user/me`,{
             headers:{
                 "Authorization":`Bearer ${localStorage.getItem("token")}`
             }
@@ -38,8 +43,8 @@ function BalanceComponent() {
     const [balance, setBalance] = useRecoilState(BalanceAtom)
 
     useEffect(() => {
-        axios.get("https://paytm-backend-ashy.vercel.app/api/v1/account/balance", {
-        // axios.get("http://localhost:3000/api/v1/account/balance", {
+        // axios.get("https://paytm-backend-ashy.vercel.app/api/v1/account/balance", {
+        axios.get(`${URL}/api/v1/account/balance`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }

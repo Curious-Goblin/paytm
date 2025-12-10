@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useState } from "react"
 import { useRecoilValue } from "recoil"
 import { BalanceAtom } from "../atoms/BalanceAtom"
+const URL = import.meta.env.VITE_URL || "http://localhost:3000";
 
 export default function SendMoney() {
     const navigate = useNavigate();
@@ -43,8 +44,8 @@ export default function SendMoney() {
                                 const bal = parseInt(balance)
                                 const amo = parseInt(amount)
                                 if (amo <= bal) {
-                                    axios.post("https://paytm-backend-ashy.vercel.app/api/v1/account/transfer", {
-                                    // axios.post("http://localhost:3000/api/v1/account/transfer", {
+                                    // axios.post("https://paytm-backend-ashy.vercel.app/api/v1/account/transfer", {
+                                    axios.post(`${URL}/api/v1/account/transfer`, {
                                         to: id,
                                         amount: amount
                                     }, {

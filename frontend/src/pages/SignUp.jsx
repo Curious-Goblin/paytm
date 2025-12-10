@@ -6,6 +6,7 @@ import { SubHeading } from "../components/SubHeading"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+const URL = import.meta.env.VITE_URL || "http://localhost:3000";
 
 export default function SignUp() {
     const [firstName, setFirstName] = useState("")
@@ -46,8 +47,8 @@ export default function SignUp() {
                 </div>
                 <Button onClick={async () => {
                     try {
-                        const response = await axios.post("https://paytm-backend-ashy.vercel.app/api/v1/user/signup",
-                        // const response = await axios.post("http://localhost:3000/api/v1/user/signup",
+                        // const response = await axios.post("https://paytm-backend-ashy.vercel.app/api/v1/user/signup",
+                        const response = await axios.post(`${URL}/api/v1/user/signup`,
                             {
                                 username,
                                 firstName,

@@ -11,7 +11,6 @@ const PayementDone = React.lazy(() => import("./pages/PaymentDone"))
 const PayementFailed = React.lazy(() => import("./pages/PaymentFailed"))
 
 
-
 function App() {
   return (
     <RecoilRoot>
@@ -38,8 +37,8 @@ function DashboardOrSignUp() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("https://paytm-backend-ashy.vercel.app/api/v1/user/me", {
-        // const response = await axios.get("http://localhost:3000/api/v1/user/me", {
+        // const response = await axios.get("https://paytm-backend-ashy.vercel.app/api/v1/user/me", {
+        const response = await axios.get("http://localhost:3000/api/v1/user/me", {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
           }

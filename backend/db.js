@@ -1,10 +1,7 @@
 const mongoose = require("mongoose")
+const DATABASE_URL = process.env.DATABASE_URL;
+mongoose.connect(DATABASE_URL);
 
-// mongoose.connect("mongodb+srv://poddarsourabh9939:sourabh123@cluster0.ss6mwde.mongodb.net/paytm")
-mongoose.connect("mongodb+srv://poddarsourabh9939:sourabh123@cluster0.ss6mwde.mongodb.net/paytm?retryWrites=true&w=majority&appName=Cluster0")
-
-//mongodb+srv://poddarsourabh9939:<password>@cluster0.scewquy.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0
-//mongodb+srv://poddarsourabh9939:Sourabhh%40123@cluster0.scewquy.mongodb.net/
 const UserSchema = new mongoose.Schema({
     username: String,
     firstName: String,
