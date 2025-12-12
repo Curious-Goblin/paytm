@@ -16,8 +16,10 @@ app.use(cors(
 app.use(bodyParser.json())
 app.use("/api/v1", mainRouter)
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log("server is running at 3000")
-})
+// app.listen(PORT, () => {
+//     console.log("server is running at 3000")
+// })
+
+module.exports = app;
