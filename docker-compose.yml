@@ -1,0 +1,32 @@
+# version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: paytm-backend
+    ports:
+      - "3000:3000"
+    # environment:
+    #   - PORT=3000
+    #   - MONGO_URL=${MONGO_URL}
+    #   - JWT_SECRET=${JWT_SECRET}
+    env_file:
+      - ./backend/.env
+    networks:
+      - paytm-net
+
+  frontend:
+    build: ./frontend
+    container_name: paytm-frontend
+    ports:
+      - "5173:80"
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+    networks:
+      - paytm-net
+
+networks:
+  paytm-net:
+    driver: bridge
